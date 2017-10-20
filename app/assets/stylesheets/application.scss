@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 $yellow: #FFF200; 
 $yellow-rgb: rgba(255, 242, 0, .3);
@@ -51,12 +53,16 @@ footer{
         padding: 2rem 0;
     }
 }
-*{
+body, div, h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
 }
 body{
     background: $yellow-rgb;
+    width: 100%;
+}
+.content-container{
+    min-height: 650px;
 }
 .logo{
     font-size: 2rem;
@@ -83,5 +89,37 @@ body{
     }
     #register{
         padding-top: 3rem;
+    }
+}
+
+.user-profile{
+    padding: 2rem; 
+    width: 60%; 
+    background: $blue; 
+    border-left: 15px solid $red;
+    color: $yellow;
+    
+    margin: 5rem auto;
+    h1{
+        border-bottom: 3px solid $red; 
+        padding-bottom: .5rem;
+    }
+    .container{
+        display: flex;
+        padding-top: 2rem;
+        width: 100%;
+        div{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 .5rem;
+            p{
+                padding-left: .5rem;
+            }
+        }
+        div:not(:last-child) {
+            border-right: 1px solid $red;
+        }
     }
 }

@@ -8,39 +8,41 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://use.fontawesome.com/76a5d9991f.js"></script>
   </head>
-  <header>
-    <div class="logo">
-      <i class="fa fa-check-square" aria-hidden="true"></i><span>Blocitoff</span>
-    </div>
-    <ul>
-      <% if current_user  %>
-        <li>Signed in as: <%= current_user.email %></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-      <% else %>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <li><%= link_to 'Register Now!', new_user_registration_path %></li>
-      <% end %>
-    </ul>
-  </header>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
-  <footer>
-    <div class="logo">
-      <i class="fa fa-check-square" aria-hidden="true"></i><span>Blocitoff</span>
+      <header>
+        <div class="logo">
+          <i class="fa fa-check-square" aria-hidden="true"></i><span>Blocitoff</span>
+        </div>
+        <ul>
+          <% if current_user  %>
+            <li>Signed in as: <%= current_user.email %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+          <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'Register Now!', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </header>
+    <div class="content-container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
     </div>
-    <ul>
-      <% if current_user  %>
-        <li>Signed in as: <%= current_user.email %></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-      <% else %>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <li><%= link_to 'Register Now!', new_user_registration_path %></li>
-      <% end %>
-    </ul>  
-  </footer>
+    <footer>
+      <div class="logo">
+        <i class="fa fa-check-square" aria-hidden="true"></i><span>Blocitoff</span>
+      </div>
+      <ul>
+        <% if current_user  %>
+          <li>Signed in as: <%= current_user.email %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+        <% else %>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Register Now!', new_user_registration_path %></li>
+        <% end %>
+      </ul>  
+    </footer>
+  </body>
 </html>
