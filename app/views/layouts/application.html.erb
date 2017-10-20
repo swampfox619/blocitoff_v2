@@ -13,9 +13,14 @@
       <i class="fa fa-check-square" aria-hidden="true"></i><span>Blocitoff</span>
     </div>
     <ul>
-        <li>View Your Todos</li>
+      <% if current_user  %>
+        <li>Signed in as: <%= current_user.email %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+      <% else %>
         <li><%= link_to 'Sign In', new_user_session_path %></li>
         <li><%= link_to 'Register Now!', new_user_registration_path %></li>
+      <% end %>
     </ul>
   </header>
   <body>
@@ -28,9 +33,14 @@
       <i class="fa fa-check-square" aria-hidden="true"></i><span>Blocitoff</span>
     </div>
     <ul>
-      <li><%= link_to 'Sign In', new_user_session_path %></li>
-      <li><%= link_to 'Register Now!', new_user_registration_path %></li>
-      <li>View Your Todos</li>
+      <% if current_user  %>
+        <li>Signed in as: <%= current_user.email %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+      <% else %>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <li><%= link_to 'Register Now!', new_user_registration_path %></li>
+      <% end %>
     </ul>  
   </footer>
 </html>
