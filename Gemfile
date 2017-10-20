@@ -20,6 +20,7 @@ gem 'figaro'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'validates_email_format_of'
+gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 
 
 group :development, :test do
