@@ -18,7 +18,7 @@ gem 'figaro'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'validates_email_format_of'
 
 
 group :development, :test do
