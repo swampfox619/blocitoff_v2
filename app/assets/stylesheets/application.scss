@@ -1,0 +1,87 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$yellow: #FFF200; 
+$yellow-rgb: rgba(255, 242, 0, .3);
+$blue: rgba(25,190, 255, .9 );
+$red: rgba(204, 20, 56, 1 );
+
+header, footer{
+    padding: 2rem;
+    background: $blue;
+    color: $yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ul{
+        display: flex;
+        list-style: none;
+        li{
+            padding: 0 2rem;
+        }
+    }
+}
+header{
+    border-bottom: 15px solid $red;
+    div{
+        flex: 1
+    }
+    ul{
+        justify-content: flex-end;
+        flex: 3;
+    }
+}
+footer{
+    flex-direction: column;
+    border-top: 15px solid $red;
+    div{
+        padding: 2rem 0;
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: $yellow-rgb;
+}
+.logo{
+    font-size: 2rem;
+    span{
+        padding-left: .5rem;
+    }
+}
+
+.welcome{
+    border-left: 50px solid $red;
+    width: 60%;
+    margin: 10rem auto;
+    height: 300px;
+    padding: 5rem;
+    background: $blue;
+    color: $yellow;
+    h2,h1{
+        width: 60%;
+        margin: 0 auto;
+    }
+    h1{
+        padding-top: 5rem;
+        border-bottom: 5px solid $red;
+    }
+    #register{
+        padding-top: 3rem;
+    }
+}

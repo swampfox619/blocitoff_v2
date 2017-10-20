@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blocitoff</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://use.fontawesome.com/76a5d9991f.js"></script>
+  </head>
+  <header>
+    <div class="logo">
+      <i class="fa fa-check-square" aria-hidden="true"></i><span>Blocitoff</span>
+    </div>
+    <ul>
+        <li>View Your Todos</li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <li><%= link_to 'Register Now!', new_user_registration_path %></li>
+    </ul>
+  </header>
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+  <footer>
+    <div class="logo">
+      <i class="fa fa-check-square" aria-hidden="true"></i><span>Blocitoff</span>
+    </div>
+    <ul>
+      <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <li><%= link_to 'Register Now!', new_user_registration_path %></li>
+      <li>View Your Todos</li>
+    </ul>  
+  </footer>
+</html>
