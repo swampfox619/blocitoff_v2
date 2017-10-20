@@ -5,5 +5,6 @@ class UsersController < ApplicationController
       redirect_to welcome_index_path
     end
     @user = User.find_by(params[:id])
+    @items = @user.items
   end
 end

@@ -8,4 +8,7 @@ class User < ApplicationRecord
   validates_email_format_of :email
   validates :email, :password, presence: true
   validates :email, uniqueness: true
+  
+  has_many :items
+  
 end

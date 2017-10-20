@@ -1,0 +1,10 @@
+<div>
+<%= f.label 'Name:' %><br>
+<div>
+  <%= f.text_field :name, size: 50 %>
+</div>
+</div>
+<div>
+<%= f.submit 'Save', class: 'btn btn-primary' %>
+<%= link_to 'Back', users_show_path(@user), class: 'btn btn-primary' %>
+</div>
