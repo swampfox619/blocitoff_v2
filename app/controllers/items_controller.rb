@@ -10,11 +10,24 @@ class ItemsController < ApplicationController
     @item.name = params[:items][:name]
     if @item.save
       flash[:notice] = "Item was saved"
-      redirect_to users_show_path(@user)
+      respond_to do |format|
+        format.html { redirect_to users_show_path(@user) }
+        format.js
+      end
     else
       flash.now["alert"] = "We had a problem.  Please try again."
       render :new
     end
   end
+  
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
+  end
+    
   
 end
