@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @user = current_user
   end
 
   def create
@@ -11,7 +10,7 @@ class ItemsController < ApplicationController
     if @item.save
       flash[:notice] = "Item was saved"
       respond_to do |format|
-        format.html { redirect_to users_show_path(@user) }
+        format.html { redirect_to users_show_path(current_user) }
         format.js
       end
     else

@@ -1,19 +1,19 @@
 <div class="user-profile">
-    <h1>User Profile for: <%= @user.email %></h1>
+    <h1>User Profile for: <%= current_user.email %></h1>
     <div class="container">
         <div>
             <h4>Created on:</h4>
-            <p><%= @user.created_at.strftime("%B %d, %Y") %></p>
+            <p><%= current_user.created_at.strftime("%B %d, %Y") %></p>
         </div>
         <div>
             <h4>Updated on:</h4>
-            <p><%= @user.updated_at.strftime("%B %d, %Y") %></p>
+            <p><%= current_user.updated_at.strftime("%B %d, %Y") %></p>
         </div>
         <div>
             <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-primary' %>
         </div>
         <div>
-            <%= link_to 'New ToDo', new_user_item_path(@user), class: 'btn btn-primary' %>
+            <%= link_to 'New ToDo', new_user_item_path(current_user), class: 'btn btn-primary' %>
         </div>
     </div>
     <div class="items">
