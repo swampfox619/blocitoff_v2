@@ -1,18 +1,18 @@
 <div class="user-profile">
-    <h1>User Profile for: <%= current_user.email %></h1>
+    <h2>ToDo List for <%= current_user.email %></h2>
     <div class="container">
-        <div>
+        <div class="two">
             <h4>Created on:</h4>
             <p><%= current_user.created_at.strftime("%B %d, %Y") %></p>
         </div>
-        <div>
+        <div class="two">
             <h4>Updated on:</h4>
             <p><%= current_user.updated_at.strftime("%B %d, %Y") %></p>
         </div>
-        <div>
+        <div class="one">
             <%= link_to 'Edit Profile', edit_user_registration_path, style: 'color: rgba(25,190, 255, .9 ); border: 2px solid rgba(204, 20, 56, 1 ); background-color: #FFF200; border-radius: 10px; font-weight: bold', class: 'btn btn-primary' %>
         </div>
-        <div>
+        <div class="one">
             <%= link_to 'New ToDo', new_user_item_path(current_user), style: 'color: rgba(25,190, 255, .9 ); border: 2px solid rgba(204, 20, 56, 1 ); background-color: #FFF200; border-radius: 10px; font-weight: bold', class: 'btn btn-primary' %>
         </div>
     </div>

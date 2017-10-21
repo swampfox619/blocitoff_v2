@@ -119,16 +119,15 @@ body{
 
 .user-profile{
     margin: 5rem auto;
-    h1{
+    h2{
         border-bottom: 3px solid $red; 
         padding-bottom: .5rem;
     }
     .container{
         display: flex;
-        padding-top: 2rem;
+        padding: 1rem 0;
         width: 100%;
         div{
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -136,6 +135,12 @@ body{
             p{
                 padding-left: .5rem;
             }
+        }
+        .one{
+            flex: 1;
+        }
+        .two{
+            flex: 2;
         }
         div:not(:last-child) {
             border-right: 1px solid $red;
