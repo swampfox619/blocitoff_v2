@@ -9,7 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ *= include reset
  *= require_tree .
  *= require_self
  */
@@ -17,9 +17,14 @@
 @import "bootstrap";
 
 $yellow: #FFF200; 
-$yellow-rgb: rgba(255, 242, 0, .3);
+$yellow-rgb: rgba(255, 242, 0, .2);
 $blue: rgba(25,190, 255, .9 );
 $red: rgba(204, 20, 56, 1 );
+
+div{
+    padding: 0;
+    margin: 0;
+}
 
 header, footer{
     padding: 2rem;
@@ -33,6 +38,13 @@ header, footer{
         list-style: none;
         li{
             padding: 0 2rem;
+            a{
+                color: $yellow;
+                &:hover{
+                    text-decoration: none;
+                    color: $yellow;
+                }
+            }
         }
     }
 }
@@ -53,16 +65,26 @@ footer{
         padding: 2rem 0;
     }
 }
-body, div, h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
-    padding: 0;
-}
 body{
-    background: $yellow-rgb;
+    height: 100%;
+    p{
+        margin: 0;
+        padding: 0;
+    }
     width: 100%;
+    background-image: url('beach1400x1400.jpg');
 }
 .content-container{
-    min-height: 650px;
+    min-height: 700px;
+    padding-bottom: 5rem;
+    background: $yellow-rgb;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
 }
 .logo{
     font-size: 2rem;
@@ -72,13 +94,7 @@ body{
 }
 
 .welcome{
-    border-left: 50px solid $red;
-    width: 60%;
-    margin: 10rem auto;
     height: 300px;
-    padding: 5rem;
-    background: $blue;
-    color: $yellow;
     h2,h1{
         width: 60%;
         margin: 0 auto;
@@ -87,18 +103,21 @@ body{
         padding-top: 5rem;
         border-bottom: 5px solid $red;
     }
+    h2{
+        a{
+            color: $yellow;
+            &:hover{
+                text-decoration: none;
+                color: $yellow;
+            }
+        }
+    }
     #register{
         padding-top: 3rem;
     }
 }
 
 .user-profile{
-    padding: 2rem; 
-    width: 60%; 
-    background: $blue; 
-    border-left: 15px solid $red;
-    color: $yellow;
-    
     margin: 5rem auto;
     h1{
         border-bottom: 3px solid $red; 
@@ -120,6 +139,94 @@ body{
         }
         div:not(:last-child) {
             border-right: 1px solid $red;
+        }
+    }
+}
+
+.main-content{
+    padding: 2rem; 
+    width: 60%; 
+    background: $blue; 
+    border-left: 15px solid $red;
+    color: $yellow;
+    margin: 5rem auto;
+    .buttons{
+        padding-top: 2rem;
+    }
+    .field{
+        padding-bottom: 2rem;
+        input{
+            color: black;
+            background: $yellow;
+        }
+    }
+    .button_to, .actions {
+        input{
+            display: inline;
+            color: $blue;
+            background-color: $yellow;
+            border: 3px solid $red;
+            font-size: 1.5rem;
+            padding: .5rem;
+            font-weight: 700;
+            border-radius: 10px;
+            box-sizing: content-box;
+            &:hover{
+                text-decoration: none;
+                color: $blue;
+                background-color: $yellow;
+                border: 3px solid $red;
+                font-size: 1.5rem;
+                padding: .5rem;
+                font-weight: 700;
+                border-radius: 10px;
+                box-sizing: content-box;
+            }
+        }
+    }
+}
+.button{
+    color: $blue;
+    background-color: $yellow;
+    border: 3px solid $red;
+    font-size: 1.5rem;
+    padding: .5rem;
+    font-weight: 700;
+    border-radius: 10px;
+    box-sizing: content-box;
+    &:hover{
+        text-decoration: none;
+        color: $blue;
+        background-color: $yellow;
+        border: 3px solid $red;
+        font-size: 1.5rem;
+        padding: .5rem;
+        font-weight: 700;
+        border-radius: 10px;
+        box-sizing: content-box;
+    }
+
+}
+.item{
+    display: flex;
+    padding: 1rem;
+    border-top: 3px solid $red;
+    font-size: 2rem;
+    .number{
+        flex: 1
+    }
+    .name{
+        flex: 5
+    }
+    .delete{
+        flex: 1
+    }
+    .time{
+        flex: 1
+    }
+    a{
+        &:hover{
+            text-decoration: none;
         }
     }
 }
