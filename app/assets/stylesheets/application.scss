@@ -72,10 +72,11 @@ body{
         padding: 0;
     }
     width: 100%;
-    background-image: url('beach1400x1400.jpg');
+    background-image: url('beach.jpg');
+    background-size: 100%;
 }
 .content-container{
-    min-height: 700px;
+    min-height: 750px;
     padding-bottom: 5rem;
     background: $yellow-rgb;
     width: 100%;
@@ -218,16 +219,24 @@ body{
     border-top: 3px solid $red;
     font-size: 2rem;
     .number{
-        flex: 1
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
     .name{
-        flex: 5
+        flex: 5;
+        display: flex;
+        align-items: center;
     }
     .delete{
-        flex: 1
+        flex: 1;
+        display: flex;
+        align-items: center;
     }
     .time{
-        flex: 1
+        flex: 1;
+        display: flex;
+        align-items: center;
     }
     a{
         &:hover{
