@@ -24,26 +24,33 @@ User.create!(
 
 users = User.all
 
-10.times do
+2.times do
+    user = User.last
+    
     Item.create!(
-        user: users.sample,
-        name: 'Play ' + Faker::Team.sport + ' this weekend'
+        user: user,
+        name: 'Play ' + Faker::Team.sport + ' this weekend',
+        order: user.items.count + 1
     )
     Item.create!(
-        user: users.sample,
-        name: 'Learn ' + Faker::Music.instrument.to_s
+        user: user,
+        name: 'Learn ' + Faker::Music.instrument.to_s,
+        order: user.items.count + 1
     )
     Item.create!(
-        user: users.sample,
-        name: 'Learn the ' + Faker::ProgrammingLanguage.name.to_s + ' programming language'
+        user: user,
+        name: 'Learn the ' + Faker::ProgrammingLanguage.name.to_s + ' programming language',
+        order: user.items.count + 1
     )    
     Item.create!(
-        user: users.sample,
-        name: 'Read ' + Faker::Book.title.to_s
+        user: user,
+        name: 'Read ' + Faker::Book.title.to_s,
+        order: user.items.count + 1
     )
     Item.create!(
-        user: users.sample,
-        name: 'Download the ' + Faker::App.name.to_s + ' app'
+        user: user,
+        name: 'Download the ' + Faker::App.name.to_s + ' app',
+        order: user.items.count + 1
     )   
 end
 

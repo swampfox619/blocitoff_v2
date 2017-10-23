@@ -13,14 +13,12 @@
             <%= link_to 'Edit Profile', edit_user_registration_path, style: 'color: rgba(25,190, 255, .9 ); border: 2px solid rgba(204, 20, 56, 1 ); background-color: #FFF200; border-radius: 10px; font-weight: bold', class: 'btn btn-primary' %>
         </div>
         <div class="one">
-            <%= link_to 'New ToDo', new_user_item_path(current_user), style: 'color: rgba(25,190, 255, .9 ); border: 2px solid rgba(204, 20, 56, 1 ); background-color: #FFF200; border-radius: 10px; font-weight: bold', class: 'btn btn-primary' %>
+            <%= link_to 'New ToDo', new_user_item_path(user_id: current_user), remote: true, id: "add_item", class: 'btn btn-primary' %>
         </div>
-    </div>
-    <div class="items">
-        <% @items.each_with_index do |item, number| %>
+    </div class="items">
+        <% @items.each do |item| %>
             <div class="item">
-                <%= render 'items/item', item: item, number: number %>
+                <%= render 'items/item', item: item %>
             </div>
         <% end %>
-    </div>
 </div>
