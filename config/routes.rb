@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users 
   resources :users do
-    resources :items, only: [:new, :create, :destroy]
+    resources :items, only: [:new, :create, :destroy, :edit, :update]
   end
   
   get 'welcome/index'

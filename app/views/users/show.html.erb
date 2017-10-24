@@ -17,8 +17,8 @@
         </div>
     </div>
     <div class="items">
-        <% @items.each do |item| %>
-                <%= render 'items/item', item: item %>
+        <% @items.each_with_index do |item, number| %>
+                <%= render 'items/item', item: item, number: number + 1 %>
         <% end %>
     </div>
 </div>

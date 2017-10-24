@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
-    @item.update_attributes(params[:items][:order])
+    @item.update_attributes(params[:item][:order])
     @item.save
   end
   

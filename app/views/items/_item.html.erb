@@ -1,16 +1,18 @@
-<div class="item" attr-item-id="<%= item.id %>">
-    <div class="number">
+<div class="item">
+    <div class="number" data-item-id="<%= number %>" data-current-user="<%= current_user.id %>">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
-        <%= item.order %>
+        <%= number %>
         <i class="fa fa-angle-down" aria-hidden="true"></i>
     </div>
-    <div class="name">
-        <%=  item.name %>
-    </div>
-    <div class="delete">
-        <%= link_to "", user_item_path(current_user, item), method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
-    </div>
-    <div class"time">
-        <%= distance_of_time_in_words(Time.now, item.created_at + 7.days) + ' left' %>
+    <div class="item-info">
+        <div class="name" data-rails-id="<%= item.id %>">
+            <%= item.name %>
+        </div>
+        <div class="delete">
+            <%= link_to "", user_item_path(current_user, item), method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
+        </div>
+        <div class"time">
+            <%= distance_of_time_in_words(Time.now, item.created_at + 7.days) + ' left' %>
+        </div>
     </div>
 </div>
