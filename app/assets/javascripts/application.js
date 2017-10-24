@@ -26,19 +26,22 @@ $(document).ready(function() {
     $('body').on('click', '.fa.fa-angle-up', function () {
         var formerPrevious = $(this).closest('.item').prev().html();
         var formerNext = $(this).closest('.item').html();
+        debugger;
         $(this).closest('.item').prev().html(formerNext);
         $(this).closest('.item').html(formerPrevious);
     });
     
     $('body').on('click', '.fa.fa-angle-down', function () {
-        // var nextNumber = $(this).closest('.item').find(".number").innerHTML()
-        // var prevNumber = $(this).closest('.item').next().find(".number").innerHTML()
-        var formerNext = $(this).closest('.item').next().html();
-        var formerPrevious = $(this).closest('.item').html();
-        $(this).closest('.item').next().html(formerPrevious);
-        $(this).closest('.item').html(formerNext);
-        // $(this).closest('.item').next().child("number").innerHTML(nextNumber);
-        // $(this).closest('.item').child("number").innerHTML(prevNumber)
+        $.ajax({
+            url: "/items/" + id,
+            method: "PUT",
+            success: function() {
+                var formerNext = $(this).closest('.item').next().html();
+                var formerPrevious = $(this).closest('.item').html();
+                $(this).closest('.item').next().html(formerPrevious);
+                $(this).closest('.item').html(formerNext);
+            }
+        })
     });
 
 });

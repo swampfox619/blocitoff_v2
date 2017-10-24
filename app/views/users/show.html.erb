@@ -15,10 +15,10 @@
         <div class="one">
             <%= link_to 'New ToDo', new_user_item_path(user_id: current_user), remote: true, id: "add_item", class: 'btn btn-primary' %>
         </div>
-    </div class="items">
+    </div>
+    <div class="items">
         <% @items.each do |item| %>
-            <div class="item">
                 <%= render 'items/item', item: item %>
-            </div>
         <% end %>
+    </div>
 </div>
