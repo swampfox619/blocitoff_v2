@@ -21,6 +21,15 @@
 //     $(this.closest('item').replaceWith(saveThis);
 // })
 
+var blocmetrics = {};
+    blocmetrics.report = function(eventName){
+       var event = {event: { name: eventName }};
+       var request = new XMLHttpRequest();
+       request.open("POST", "https://blocmetrics-lewvine.c9users.io/api/events", true);
+       request.setRequestHeader('Content-Type', 'application/json');
+       request.send(JSON.stringify(event));    
+    };
+
 $(document).ready(function() {
 
     // $('body').on('click', '.fa.fa-angle-up', function () {
@@ -36,8 +45,8 @@ $(document).ready(function() {
         
     // });
 
-
     $('body').on('click', '.fa.fa-angle-down', function () {
+    
         var thisItem = $(this).closest('.item').find('.item-info').html();
         var nextItem = $(this).closest('.item').next().find('.item-info').html();
         if(nextItem) {
@@ -51,28 +60,33 @@ $(document).ready(function() {
         var thisItemRailsID = $(this).closest('.item').find(".name").data("rails-id");
 
         var nextItemID = $(this).closest('.item').next().find(".number").data("item-id");  
-        var nextItemRailsID = $(this).closest('.item').next().find(".number").data("rails-id");  
+        var nextItemRailsID = $(this).closest('.item').next().find(".name").data("rails-id");  
     
-        // All the code above this line works great.  thisItemID and nextItemID return the number associated with it's order in the list.
-        // ex. 1 and 2.  The thisItemRailsID and the nextItemRailsID return it's item.id.  current_user returns an integer whose value is
-        // current_user.id
-        // That said, any idea why this below isn't work?  When the request is console.logged, it states "NoMethod error in ItemsController
-        // #update, undefined method for Nil:Class" and has a 500 error.
-        
-        var data = {
-            "order": "'" +thisItemID + "'"
-        }
-        var xhr = $.ajax({
-            type: "PATCH",
-            url: "/users/" + current_user + "/items/" + thisItemRailsID,
+        console.log(thisItemRailsID)
+
+        $.ajax({
+            type: "PUT",
+            url: 'users/' + current_user + '/items/' + thisItemRailsID,
             dataType: "json",
-            data: {
-                "order": '"' +thisItemID + '"',
-            success: alert(data)
-            }
+            data: { 
+                "item": {
+                    "order": thisItemID
+                }
+            },
         });
-        console.log(xhr)
-        
+
+        $.ajax({
+            type: "PUT",
+            url: 'users/' + current_user + '/items/' + nextItemRailsID,
+            dataType: "json",
+            data: { 
+                "item": {
+                    "order": nextItemID
+                }
+            },
+        });
+
+        console.log(nextItemRailsID);
     });
             
 });   

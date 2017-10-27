@@ -24,8 +24,11 @@ class ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
-    @item.update_attributes(params[:item][:order])
+    @item.assign_attributes(item_params)
     @item.save
+    respond_to do |format|
+      format.js
+    end
   end
   
   def destroy
@@ -37,5 +40,9 @@ class ItemsController < ApplicationController
     end
   end
     
+  private
   
+  def item_params
+    params.require(:item).permit(:name, :order, :user_id)
+  end
 end
